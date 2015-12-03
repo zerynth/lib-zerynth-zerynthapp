@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <viper/>
+        <viper-jquery/>
+        <viper-jquery-mobile/>
+        <viper-jqwidgets/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>        
+    <body>
+        <div data-role="page">
+            <div data-role="header"><h1>Oscilloscope</h1></div>
+            <div role="main" class="ui-content" style="text-align:center">
+                <div id='chart' style="width:90%; height:80%"></div>
+            </div>
+            <div data-role="footer">Powered by Viper</div>
+        </div>
+        <script>
+            var data = []
+            $(document).ready(function () {
+            // prepare jqxChart settings
+            var settings = {
+                title: "Oscilloscope Data",
+                description: "Sent from your Viper Object",
+                enableAnimations: true,
+                animationDuration: 100,
+                enableAxisTextAnimation: true,
+                showLegend:false,
+                padding: { left: 5, top: 5, right: 5, bottom: 5 },
+                titlePadding: { left: 0, top: 0, right: 0, bottom: 10 },
+                source: data,
+                xAxis:
+                {
+                    unitInterval: 1,
+                    gridLines: { interval: 2 },
+                    valuesOnTicks: false,
+                    labels: {visible:false}
+                },
+                valueAxis:
+                {
+                    minValue: 0,
+                    maxValue: 4096,
+                },
+                seriesGroups:
+                    [
+                        {
+                            type: 'line',
+                            series: [
+                                    { dataField: 'adc', displayText: 'adc', opacity: 1, lineWidth: 1, symbolType: 'circle', fillColorSymbolSelected: 'white', radius: 15 },
+                                ]
+                        }
+                    ]
+            };
+            // create the chart
+            $('#chart').jqxChart(settings);
+            });
+            function update_graph(x){
+                data.push({adc:x})
+                if (data.length>20)
+                    data.shift()
+                $("#chart").jqxChart('update')
+            }
+            
+            ViperApp.listen("adc",update_graph)
+            ViperApp.jquerymobile_scalecontent()
+        </script>
+    </body>
+</html>

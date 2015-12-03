@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <viper/>
+        <viper-jquery/>
+        <viper-jquery-mobile/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>        
+    <body>
+        <div data-role="page">
+            <div data-role="header"><h1>Viper Test App</h1></div>
+            <div role="main" class="ui-content" style="text-align:center">
+                <button class="ui-btn ui-btn-inline" onclick="ViperApp.call('showmsg','Random number for you:'+Math.random())">Click me!</button>
+                <p id="label"></p>
+            </div>
+            <div data-role="footer">Powered by Viper</div>
+        </div>
+        <script>
+            function update_label(msg){
+                $("#label").text(msg)
+            }
+            ViperApp.listen("btn",update_label)
+            ViperApp.jquerymobile_scalecontent()
+        </script>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+{
+	"version":"0.3.0",
+	"title":"ViperApp Module",
+	"copyright":"Viper Team",
+	"files":[
+		["Viper App","viperapp.py"]
+	]
+}

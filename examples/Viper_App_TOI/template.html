@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <viper/>
+        <viper-jquery/>
+        <viper-jquery-mobile/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>        
+    <body>
+        <div data-role="page">
+            <div data-role="header"><h1>TOI Shield</h1></div>
+            <div role="main" class="ui-content" style="text-align:center">
+                <button class="ui-btn ui-btn-inline" onclick="ViperApp.call('buzzer')">Buzz!</button>
+                <p id="light"></p>
+                <p id="temperature"></p>
+                <p id="sound"></p>
+                <p id="touch"></p>
+            </div>
+            <div data-role="footer">Powered by Viper</div>
+        </div>
+        <script>
+            function update_labels(args){
+                $("#light").text("Light level: "+args[0]+"%")
+                $("#sound").text("Sound Level: "+args[1]+"%")
+                $("#temperature").text("Temperature is: "+args[2]+" degrees")
+                $("#touch").text((args[3])?("Touched!"):("Touch me!"))
+            }
+            ViperApp.listen("data",update_labels)
+            ViperApp.jquerymobile_scalecontent()
+        </script>
+    </body>
+</html>

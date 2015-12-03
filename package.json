@@ -1,0 +1,9 @@
+{
+        "author": "dev@viperize.it",
+        "description": "Viper App Module",
+        "name": "Viper App Module",
+        "fullname":"lib.viper.viperapp",
+        "dependencies": {
+        }
+}
+
