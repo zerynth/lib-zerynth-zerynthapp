@@ -1,8 +1,8 @@
 {
         "author": "dev@viperize.it",
-        "description": "Viper App Module",
-        "name": "Viper App Module",
-        "fullname":"lib.viper.viperapp",
+        "description": "Zerynth App Module",
+        "name": "Zerynth App Module",
+        "fullname":"lib.zerynth.viperapp",
         "dependencies": {
         }
 }
