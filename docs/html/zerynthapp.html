@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ViperApp Step by Step &mdash; ViperApp Module 0.3.0 documentation</title>
+  <title>ZerynthApp Step by Step &mdash; ZerynthApp Module 0.3.0 documentation</title>
   
 
   
@@ -24,14 +24,14 @@
 
   
   
-    <link rel="stylesheet" href="_static/viper.css" type="text/css" />
+    <link rel="stylesheet" href="_static/zerynth.css" type="text/css" />
   
 
   
 
   
-    <link rel="top" title="ViperApp Module 0.3.0 documentation" href="index.html"/>
-        <link rel="prev" title="Viper App Module" href="index.html"/> 
+    <link rel="top" title="ZerynthApp Module 0.3.0 documentation" href="index.html"/>
+        <link rel="prev" title="Zerynth App Module" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -46,7 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="index.html" class="fa fa-home"> ViperApp Module</a>
+          <a href="index.html" class="fa fa-home"> ZerynthApp Module</a>
         
         
 <div role="search">
@@ -63,10 +63,10 @@
           
           
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">ViperApp Step by Step</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">ZerynthApp Step by Step</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#html-templates">HTML templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#viper-app-instances">Viper App Instances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-viperapp-class">The ViperApp class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zerynth-app-instances">Zerynth App Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-zerynthapp-class">The ZerynthApp class</a></li>
 </ul>
 </li>
 </ul>
@@ -82,7 +82,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">ViperApp Module</a>
+        <a href="index.html">ZerynthApp Module</a>
       </nav>
 
 
@@ -93,10 +93,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>ViperApp Step by Step</li>
+    <li>ZerynthApp Step by Step</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/viperapp.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/zerynthapp.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -104,9 +104,9 @@
 </div>
           <div role="main" class="document">
             
-  <span class="target" id="module-viperapp"></span><p>This module provides access to the Viper App functionalities.</p>
-<p>The Viper App is an innovative mobile app designed to make interaction with Viper programs easy. A Viper App can be tought as a bidirectional communication channel between a Viper script running on a board and some HTML+Javascript running on the mobile app.</p>
-<p>A program using the viperapp module must provide some components:</p>
+  <span class="target" id="module-zerynthapp"></span><p>This module provides access to the Zerynth App functionalities.</p>
+<p>The Zerynth App is an innovative mobile app designed to make interaction with Zerynth programs easy. A Zerynth App can be tought as a bidirectional communication channel between a Zerynth script running on a board and some HTML+Javascript running on the mobile app.</p>
+<p>A program using the Zerynthapp module must provide some components:</p>
 <blockquote>
 <div><ul class="simple">
 <li>an UI template, responsible of the Javascript part</li>
@@ -114,45 +114,45 @@
 <li>a set of notifications representing the channel from Python to Javascript</li>
 </ul>
 </div></blockquote>
-<p>When the ViperApp class, defined in this module, is instantiated and run, it waits for messages coming
+<p>When the ZerynthApp class, defined in this module, is instantiated and run, it waits for messages coming
 from the mobile app both via wifi or bluetooth LE (BLE is not yet supported).</p>
-<div class="section" id="viperapp-step-by-step">
-<h1>ViperApp Step by Step<a class="headerlink" href="#viperapp-step-by-step" title="Permalink to this headline">¶</a></h1>
-<p>Using the viperapp module is easy.</p>
+<div class="section" id="zerynthapp-step-by-step">
+<h1>ZerynthApp Step by Step<a class="headerlink" href="#zerynthapp-step-by-step" title="Permalink to this headline">¶</a></h1>
+<p>Using the zerynthapp module is easy.</p>
 <blockquote>
 <div><ul class="simple">
 <li>First, an html template must be defined by adding a new html file to the current project. The template must be declared as a resource, so it can be saved to flash and opened from the script.</li>
-<li>A viperapp instance must be created with a name and a description</li>
-<li>The viperapp instance must be configured, linking event names to functions</li>
-<li>The viperapp instance must be run</li>
+<li>A zerynthapp instance must be created with a name and a description</li>
+<li>The zerynthapp instance must be configured, linking event names to functions</li>
+<li>The zerynthapp instance must be run</li>
 </ul>
 </div></blockquote>
 <div class="section" id="html-templates">
 <h2>HTML templates<a class="headerlink" href="#html-templates" title="Permalink to this headline">¶</a></h2>
-<p>HTML templates are transferred from the board to the mobile app where they are rendered. Javascript is needed to add some logic to the template. A Javascript object called <em>ViperApp</em> can be used to remotely call Python functions by name.</p>
+<p>HTML templates are transferred from the board to the mobile app where they are rendered. Javascript is needed to add some logic to the template. A Javascript object called <em>ZerynthApp</em> can be used to remotely call Python functions by name.</p>
 <p>Templates are better explained with examples:</p>
 <div class="highlight-python"><div class="highlight"><pre>&lt;html&gt;
     &lt;head&gt;
-        &lt;viper/&gt;
-        &lt;viper-jquery/&gt;
-        &lt;viper-jquery-mobile/&gt;
+        &lt;zerynth/&gt;
+        &lt;zerynth-jquery/&gt;
+        &lt;zerynth-jquery-mobile/&gt;
         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
     &lt;/head&gt;
     &lt;body&gt;
         &lt;div data-role=&quot;page&quot;&gt;
-            &lt;div data-role=&quot;header&quot;&gt;&lt;h1&gt;Viper Test App&lt;/h1&gt;&lt;/div&gt;
+            &lt;div data-role=&quot;header&quot;&gt;&lt;h1&gt;Zerynth Test App&lt;/h1&gt;&lt;/div&gt;
             &lt;div role=&quot;main&quot; class=&quot;ui-content&quot; style=&quot;text-align:center&quot;&gt;
-                &lt;button class=&quot;ui-btn ui-btn-inline&quot; onclick=&quot;ViperApp.call(&#39;showmsg&#39;,&#39;Random number for you:&#39;+Math.random())&quot;&gt;Click me!&lt;/button&gt;
+                &lt;button class=&quot;ui-btn ui-btn-inline&quot; onclick=&quot;ZerynthApp.call(&#39;showmsg&#39;,&#39;Random number for you:&#39;+Math.random())&quot;&gt;Click me!&lt;/button&gt;
                 &lt;p id=&quot;label&quot;&gt;&lt;/p&gt;
             &lt;/div&gt;
-            &lt;div data-role=&quot;footer&quot;&gt;Powered by Viper&lt;/div&gt;
+            &lt;div data-role=&quot;footer&quot;&gt;Powered by Zerynth&lt;/div&gt;
         &lt;/div&gt;
         &lt;script&gt;
             function update_label(msg){
                 $(&quot;#label&quot;).text(msg)
             }
-            ViperApp.listen(&quot;btn&quot;,update_label)
-            ViperApp.jquerymobile_scalecontent()
+            ZerynthApp.listen(&quot;btn&quot;,update_label)
+            ZerynthApp.jquerymobile_scalecontent()
         &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -161,22 +161,22 @@ from the mobile app both via wifi or bluetooth LE (BLE is not yet supported).</p
 <p>In the head section special tags can be used to import javascript libraries embedded in the mobile app. They are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>&lt;viper/&gt;  to import the basic Viper functionalities</li>
-<li>&lt;viper-jquery/&gt; to import the JQuery library</li>
-<li>&lt;viper-jquery-mobile/&gt; to import the JQuery Mobile library</li>
-<li>&lt;viper-jqwidgets/&gt; to import the JQWidgets library</li>
+<li>&lt;zerynth/&gt;  to import the basic Zerynth functionalities</li>
+<li>&lt;zerynth-jquery/&gt; to import the JQuery library</li>
+<li>&lt;zerynth-jquery-mobile/&gt; to import the JQuery Mobile library</li>
+<li>&lt;zerynth-jqwidgets/&gt; to import the JQWidgets library</li>
 </ul>
 </div></blockquote>
-<p>In the body section, the html scaffolding is layed out and logic is inserted to link the template events with the functions on running on the board. For example, in the onclick part of the button an event called <em>showmsg</em> is generated by using the construct ViperApp.call(event,parameters). All the parameters are encoded, sent to the board, and used as arguments of the Python function linked to the event <em>event</em>. The ViperApp.call function is the channel from Javascript to Python</p>
-<p>In the final script section the ViperApp Javascript object is used to register a notification name &#8220;btn&#8221;. Everytime the board will send a notification named &#8220;btn&#8221; the update_label function will be executed (in this case a html element text is changed). Parameters can be passed to the notify function and transmitted to the mobile app. The notify method of the ViperApp instance is the channel from Python to Javascript.</p>
+<p>In the body section, the html scaffolding is layed out and logic is inserted to link the template events with the functions on running on the board. For example, in the onclick part of the button an event called <em>showmsg</em> is generated by using the construct ZerynthApp.call(event,parameters). All the parameters are encoded, sent to the board, and used as arguments of the Python function linked to the event <em>event</em>. The ZerynthApp.call function is the channel from Javascript to Python</p>
+<p>In the final script section the ZerynthApp Javascript object is used to register a notification name &#8220;btn&#8221;. Everytime the board will send a notification named &#8220;btn&#8221; the update_label function will be executed (in this case a html element text is changed). Parameters can be passed to the notify function and transmitted to the mobile app. The notify method of the ZerynthApp instance is the channel from Python to Javascript.</p>
 </div>
-<div class="section" id="viper-app-instances">
-<h2>Viper App Instances<a class="headerlink" href="#viper-app-instances" title="Permalink to this headline">¶</a></h2>
-<p>An HTML template must be coupled with a Viper script running on a board. Here it is an example:</p>
+<div class="section" id="zerynth-app-instances">
+<h2>Zerynth App Instances<a class="headerlink" href="#zerynth-app-instances" title="Permalink to this headline">¶</a></h2>
+<p>An HTML template must be coupled with a Zerynth script running on a board. Here it is an example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">streams</span>
 <span class="kn">from</span> <span class="nn">wireless</span> <span class="kn">import</span> <span class="n">wifi</span>
 <span class="kn">from</span> <span class="nn">cc3000</span> <span class="kn">import</span> <span class="n">cc3000_tiny</span> <span class="k">as</span> <span class="n">cc3000</span>
-<span class="kn">from</span> <span class="nn">viperapp</span> <span class="kn">import</span> <span class="n">viperapp</span>
+<span class="kn">from</span> <span class="nn">zerynthapp</span> <span class="kn">import</span> <span class="n">zerynthapp</span>
 
 
 <span class="n">streams</span><span class="o">.</span><span class="n">serial</span><span class="p">()</span>
@@ -205,56 +205,56 @@ from the mobile app both via wifi or bluetooth LE (BLE is not yet supported).</p
 <span class="n">onPinFall</span><span class="p">(</span><span class="n">BTN0</span><span class="p">,</span><span class="n">btn_pressed</span><span class="p">)</span>
 
 
-<span class="c"># configure and start the viper app</span>
+<span class="c"># configure and start the zerynthapp</span>
 
-<span class="n">vp</span> <span class="o">=</span> <span class="n">viperapp</span><span class="o">.</span><span class="n">ViperApp</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="s">&quot;Test Object&quot;</span><span class="p">,</span><span class="s">&quot;resource://template.html&quot;</span><span class="p">)</span>
+<span class="n">vp</span> <span class="o">=</span> <span class="n">zerynthapp</span><span class="o">.</span><span class="n">ZerynthApp</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">,</span><span class="s">&quot;Test Object&quot;</span><span class="p">,</span><span class="s">&quot;resource://template.html&quot;</span><span class="p">)</span>
 
 <span class="n">vp</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;showmsg&quot;</span><span class="p">,</span><span class="n">show_message</span><span class="p">)</span>
 
 <span class="n">vp</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This simple script connects to the local Wifi network, configures and runs a ViperApp instance. First of all, the template must be saved to flash by calling the function <em>new_resource</em>. It can then be opened with the url &#8220;resource://name-of-file.extension&#8221;.
-A ViperApp instance is created passing the name of the object, its description and the url to the template.
-The method <em>on</em> is called to configure the Javascript-to-Python channel: everytime an event &#8220;showmsg&#8221; is sent from Javascript, the function show_message is called in the Viper script.
+<p>This simple script connects to the local Wifi network, configures and runs a ZerynthApp instance. First of all, the template must be saved to flash by calling the function <em>new_resource</em>. It can then be opened with the url &#8220;resource://name-of-file.extension&#8221;.
+A ZerynthApp instance is created passing the name of the object, its description and the url to the template.
+The method <em>on</em> is called to configure the Javascript-to-Python channel: everytime an event &#8220;showmsg&#8221; is sent from Javascript, the function show_message is called in the Zerynth script.
 When the board button is pressed, the notify method is called, and the event &#8220;btn&#8221; is transferred to the mobile app, where Javascript, configured in the template, calls the function update_label.</p>
-<p>Object discovery, template transfer and object-to-mobile-app linking is automatically handled b the ViperApp instance.</p>
-<p>Finally, more than one ViperApp instance can be created in the same Viper script.</p>
+<p>Object discovery, template transfer and object-to-mobile-app linking is automatically handled b the ZerynthApp instance.</p>
+<p>Finally, more than one ZerynthApp instance can be created in the same Zerynth script.</p>
 </div>
-<div class="section" id="the-viperapp-class">
-<h2>The ViperApp class<a class="headerlink" href="#the-viperapp-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-zerynthapp-class">
+<h2>The ZerynthApp class<a class="headerlink" href="#the-zerynthapp-class" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="viperapp.ViperApp">
-<em class="property">class </em><code class="descname">ViperApp</code><span class="sig-paren">(</span><em>name</em>, <em>desc</em>, <em>template</em>, <em>logging=False</em><span class="sig-paren">)</span><a class="headerlink" href="#viperapp.ViperApp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a ViperApp instance named <em>name</em>, with short description <em>desc</em> and with UI template <em>template</em>
+<dt id="zerynthapp.ZerynthApp">
+<em class="property">class </em><code class="descname">ZerynthApp</code><span class="sig-paren">(</span><em>name</em>, <em>desc</em>, <em>template</em>, <em>logging=False</em><span class="sig-paren">)</span><a class="headerlink" href="#zerynthapp.ZerynthApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a ZerynthApp instance named <em>name</em>, with short description <em>desc</em> and with UI template <em>template</em>
 If <em>logging</em> is True, some debug messages are printed.</p>
 <p><em>template</em> must be the url of anything that can be opened with the open builtin.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="viperapp.on">
-<code class="descname">on</code><span class="sig-paren">(</span><em>event</em>, <em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#viperapp.on" title="Permalink to this definition">¶</a></dt>
-<dd><p>Associate the event name <em>event</em> to the callable <em>fn</em>. Everytime the ViperApp instance receives an <em>event</em>
+<dt id="zerynthapp.on">
+<code class="descname">on</code><span class="sig-paren">(</span><em>event</em>, <em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#zerynthapp.on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Associate the event name <em>event</em> to the callable <em>fn</em>. Everytime the ZerynthApp instance receives an <em>event</em>
 from the mobile app, the callable <em>fn</em> is executed (possibly with arguments).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="viperapp.notify">
-<code class="descname">notify</code><span class="sig-paren">(</span><em>what</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#viperapp.notify" title="Permalink to this definition">¶</a></dt>
+<dt id="zerynthapp.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>what</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#zerynthapp.notify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send the message named <em>what</em> with value <em>value</em> to the mobile app. Notifications are not sent if
 the mobile app is not linked (i.e. has not yet received the UI template).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="viperapp.unlink">
-<code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#viperapp.unlink" title="Permalink to this definition">¶</a></dt>
+<dt id="zerynthapp.unlink">
+<code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zerynthapp.unlink" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove the link with the mobile app.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="viperapp.run">
-<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#viperapp.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start the ViperApp instance on a separate thread and returns immediately.</p>
+<dt id="zerynthapp.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zerynthapp.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the ZerynthApp instance on a separate thread and returns immediately.</p>
 </dd></dl>
 
 </div>
@@ -267,7 +267,7 @@ the mobile app is not linked (i.e. has not yet received the UI template).</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="index.html" class="btn btn-neutral" title="Viper App Module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Zerynth App Module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -276,7 +276,7 @@ the mobile app is not linked (i.e. has not yet received the UI template).</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Viper Team.
+        &copy; Copyright Zerynth Team.
     </p>
   </div>
 
@@ -322,7 +322,18 @@ the mobile app is not linked (i.e. has not yet received the UI template).</p>
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ <script type="text/javascript">
+ var vurl
+ if(location.href.indexOf("127.0.0.1")>=0) vurl=location.protocol+"//"+location.host+"/docs"
+ else vurl="http://doc.zerynth.com"
+ $(document).ready(function(){
+                   $('.wy-breadcrumbs a:contains("Docs")').before('<a href="'+vurl+'">Zerynth</a> &#187;')
+                   $('.wy-side-nav-search > a').removeClass("fa-home").removeClass("fa")
+                   $('.wy-side-nav-search').prepend('<div class="viper-circle"><a href="'+vurl+'"><span style="color:#1c5e60" class="zerynth-Logo2"></span></a></div>')
+ })
+ </script>
+
 
 </body>
 </html>

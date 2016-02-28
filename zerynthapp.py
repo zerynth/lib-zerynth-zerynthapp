@@ -1,85 +1,85 @@
 """
-.. module:: viperapp
+.. module:: zerynthapp
 
-This module provides access to the Viper App functionalities.
+This module provides access to the Zerynth App functionalities.
 
-The Viper App is an innovative mobile app designed to make interaction with Viper programs easy. A Viper App can be tought as a bidirectional communication channel between a Viper script running on a board and some HTML+Javascript running on the mobile app.
+The Zerynth App is an innovative mobile app designed to make interaction with Zerynth programs easy. A Zerynth App can be tought as a bidirectional communication channel between a Zerynth script running on a board and some HTML+Javascript running on the mobile app.
 
-A program using the viperapp module must provide some components:
+A program using the Zerynthapp module must provide some components:
 
     * an UI template, responsible of the Javascript part
     * a set of event functions representing the channel from Javascript to Python
     * a set of notifications representing the channel from Python to Javascript
 
 
-When the ViperApp class, defined in this module, is instantiated and run, it waits for messages coming
+When the ZerynthApp class, defined in this module, is instantiated and run, it waits for messages coming
 from the mobile app both via wifi or bluetooth LE (BLE is not yet supported).
 
 
-ViperApp Step by Step
-=====================
+ZerynthApp Step by Step
+=======================
 
-Using the viperapp module is easy. 
+Using the zerynthapp module is easy. 
 
     * First, an html template must be defined by adding a new html file to the current project. The template must be declared as a resource, so it can be saved to flash and opened from the script.
-    * A viperapp instance must be created with a name and a description
-    * The viperapp instance must be configured, linking event names to functions
-    * The viperapp instance must be run
+    * A zerynthapp instance must be created with a name and a description
+    * The zerynthapp instance must be configured, linking event names to functions
+    * The zerynthapp instance must be run
 
 HTML templates
 **************
 
-HTML templates are transferred from the board to the mobile app where they are rendered. Javascript is needed to add some logic to the template. A Javascript object called *ViperApp* can be used to remotely call Python functions by name.
+HTML templates are transferred from the board to the mobile app where they are rendered. Javascript is needed to add some logic to the template. A Javascript object called *ZerynthApp* can be used to remotely call Python functions by name.
 
 Templates are better explained with examples: ::
     
     <html>
         <head>
-            <viper/>
-            <viper-jquery/>
-            <viper-jquery-mobile/>
+            <zerynth/>
+            <zerynth-jquery/>
+            <zerynth-jquery-mobile/>
             <meta name="viewport" content="width=device-width, initial-scale=1">
         </head>        
         <body>
             <div data-role="page">
-                <div data-role="header"><h1>Viper Test App</h1></div>
+                <div data-role="header"><h1>Zerynth Test App</h1></div>
                 <div role="main" class="ui-content" style="text-align:center">
-                    <button class="ui-btn ui-btn-inline" onclick="ViperApp.call('showmsg','Random number for you:'+Math.random())">Click me!</button>
+                    <button class="ui-btn ui-btn-inline" onclick="ZerynthApp.call('showmsg','Random number for you:'+Math.random())">Click me!</button>
                     <p id="label"></p>
                 </div>
-                <div data-role="footer">Powered by Viper</div>
+                <div data-role="footer">Powered by Zerynth</div>
             </div>
             <script>
                 function update_label(msg){
                     $("#label").text(msg)
                 }
-                ViperApp.listen("btn",update_label)
-                ViperApp.jquerymobile_scalecontent()
+                ZerynthApp.listen("btn",update_label)
+                ZerynthApp.jquerymobile_scalecontent()
             </script>
         </body>
     </html>
 
 In the head section special tags can be used to import javascript libraries embedded in the mobile app. They are:
 
-    * <viper/>  to import the basic Viper functionalities
-    * <viper-jquery/> to import the JQuery library
-    * <viper-jquery-mobile/> to import the JQuery Mobile library
-    * <viper-jqwidgets/> to import the JQWidgets library
+    * <zerynth/>  to import the basic Zerynth functionalities
+    * <zerynth-jquery/> to import the JQuery library
+    * <zerynth-jquery-mobile/> to import the JQuery Mobile library
+    * <zerynth-jqwidgets/> to import the JQWidgets library
 
-In the body section, the html scaffolding is layed out and logic is inserted to link the template events with the functions on running on the board. For example, in the onclick part of the button an event called *showmsg* is generated by using the construct ViperApp.call(event,parameters). All the parameters are encoded, sent to the board, and used as arguments of the Python function linked to the event *event*. The ViperApp.call function is the channel from Javascript to Python
+In the body section, the html scaffolding is layed out and logic is inserted to link the template events with the functions on running on the board. For example, in the onclick part of the button an event called *showmsg* is generated by using the construct ZerynthApp.call(event,parameters). All the parameters are encoded, sent to the board, and used as arguments of the Python function linked to the event *event*. The ZerynthApp.call function is the channel from Javascript to Python
 
-In the final script section the ViperApp Javascript object is used to register a notification name "btn". Everytime the board will send a notification named "btn" the update_label function will be executed (in this case a html element text is changed). Parameters can be passed to the notify function and transmitted to the mobile app. The notify method of the ViperApp instance is the channel from Python to Javascript.
+In the final script section the ZerynthApp Javascript object is used to register a notification name "btn". Everytime the board will send a notification named "btn" the update_label function will be executed (in this case a html element text is changed). Parameters can be passed to the notify function and transmitted to the mobile app. The notify method of the ZerynthApp instance is the channel from Python to Javascript.
 
 
-Viper App Instances
-*******************
+Zerynth App Instances
+*********************
 
-An HTML template must be coupled with a Viper script running on a board. Here it is an example: ::
+An HTML template must be coupled with a Zerynth script running on a board. Here it is an example: ::
 
     import streams
     from wireless import wifi
     from cc3000 import cc3000_tiny as cc3000
-    from viperapp import viperapp
+    from zerynthapp import zerynthapp
 
 
     streams.serial()
@@ -108,22 +108,22 @@ An HTML template must be coupled with a Viper script running on a board. Here it
     onPinFall(BTN0,btn_pressed)
 
 
-    # configure and start the viper app
+    # configure and start the zerynthapp
 
-    vp = viperapp.ViperApp("Test","Test Object","resource://template.html")
+    vp = zerynthapp.ZerynthApp("Test","Test Object","resource://template.html")
 
     vp.on("showmsg",show_message)
 
     vp.run()
 
-This simple script connects to the local Wifi network, configures and runs a ViperApp instance. First of all, the template must be saved to flash by calling the function *new_resource*. It can then be opened with the url "resource://name-of-file.extension". 
-A ViperApp instance is created passing the name of the object, its description and the url to the template.
-The method *on* is called to configure the Javascript-to-Python channel: everytime an event "showmsg" is sent from Javascript, the function show_message is called in the Viper script.
+This simple script connects to the local Wifi network, configures and runs a ZerynthApp instance. First of all, the template must be saved to flash by calling the function *new_resource*. It can then be opened with the url "resource://name-of-file.extension". 
+A ZerynthApp instance is created passing the name of the object, its description and the url to the template.
+The method *on* is called to configure the Javascript-to-Python channel: everytime an event "showmsg" is sent from Javascript, the function show_message is called in the Zerynth script.
 When the board button is pressed, the notify method is called, and the event "btn" is transferred to the mobile app, where Javascript, configured in the template, calls the function update_label.  
 
-Object discovery, template transfer and object-to-mobile-app linking is automatically handled b the ViperApp instance.
+Object discovery, template transfer and object-to-mobile-app linking is automatically handled b the ZerynthApp instance.
 
-Finally, more than one ViperApp instance can be created in the same Viper script.
+Finally, more than one ZerynthApp instance can be created in the same Zerynth script.
 
     """
 import socket
@@ -131,7 +131,7 @@ import msgpack
 import threading
 
 
-def viperapp_loop(vapp):
+def zerynthapp_loop(vapp):
     while True:
         res = None
         if vapp.logging:
@@ -188,15 +188,15 @@ def viperapp_loop(vapp):
             vapp.unlink()
 
 
-class ViperApp():
+class ZerynthApp():
     """
 
-The ViperApp class
+The ZerynthApp class
 ******************
 
-.. class:: ViperApp(name,desc,template,logging=False)
+.. class:: ZerynthApp(name,desc,template,logging=False)
 
-        Create a ViperApp instance named *name*, with short description *desc* and with UI template *template*
+        Create a ZerynthApp instance named *name*, with short description *desc* and with UI template *template*
         If *logging* is True, some debug messages are printed.
 
         *template* must be the url of anything that can be opened with the open builtin.
@@ -208,16 +208,16 @@ The ViperApp class
         self.template = open(template)
         self.name = name
         self.desc = desc
-        self.id = ViperApp.VID
+        self.id = ZerynthApp.VID
         self.linked_addr = None
         self.logging = logging
-        ViperApp.VID+=1
+        ZerynthApp.VID+=1
 
     def on(self,event,fn):
         """
 .. method:: on(event,fn)        
 
-        Associate the event name *event* to the callable *fn*. Everytime the ViperApp instance receives an *event*
+        Associate the event name *event* to the callable *fn*. Everytime the ZerynthApp instance receives an *event*
         from the mobile app, the callable *fn* is executed (possibly with arguments).
                 
         """
@@ -249,11 +249,11 @@ The ViperApp class
         """
 .. method:: run()        
 
-        Start the ViperApp instance on a separate thread and returns immediately.
+        Start the ZerynthApp instance on a separate thread and returns immediately.
                 
         """
 
         self.sock = socket.socket(type=socket.SOCK_DGRAM)
         #self.sock.settimeout(200)
         self.sock.bind(5566)
-        thread(viperapp_loop,self)
+        thread(zerynthapp_loop,self)

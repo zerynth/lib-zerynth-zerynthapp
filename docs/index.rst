@@ -1,5 +1,5 @@
-****************
-Viper App Module
-****************
+******************
+Zerynth App Module
+******************
 
 .. include:: __toc.rst

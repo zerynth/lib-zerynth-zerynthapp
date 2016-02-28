@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; ViperApp Module 0.3.0 documentation</title>
+  <title>Index &mdash; ZerynthApp Module 0.3.0 documentation</title>
   
 
   
@@ -25,13 +25,13 @@
 
   
   
-    <link rel="stylesheet" href="_static/viper.css" type="text/css" />
+    <link rel="stylesheet" href="_static/zerynth.css" type="text/css" />
   
 
   
 
   
-    <link rel="top" title="ViperApp Module 0.3.0 documentation" href="index.html"/> 
+    <link rel="top" title="ZerynthApp Module 0.3.0 documentation" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -46,7 +46,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="index.html" class="fa fa-home"> ViperApp Module</a>
+          <a href="index.html" class="fa fa-home"> ZerynthApp Module</a>
         
         
 <div role="search">
@@ -63,10 +63,10 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="viperapp.html">ViperApp Step by Step</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="viperapp.html#html-templates">HTML templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="viperapp.html#viper-app-instances">Viper App Instances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="viperapp.html#the-viperapp-class">The ViperApp class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerynthapp.html">ZerynthApp Step by Step</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zerynthapp.html#html-templates">HTML templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zerynthapp.html#zerynth-app-instances">Zerynth App Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zerynthapp.html#the-zerynthapp-class">The ZerynthApp class</a></li>
 </ul>
 </li>
 </ul>
@@ -82,7 +82,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">ViperApp Module</a>
+        <a href="index.html">ZerynthApp Module</a>
       </nav>
 
 
@@ -110,14 +110,14 @@
  | <a href="#O"><strong>O</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#U"><strong>U</strong></a>
- | <a href="#V"><strong>V</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
  
 </div>
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="viperapp.html#viperapp.notify">notify() (in module viperapp)</a>
+  <dt><a href="zerynthapp.html#zerynthapp.notify">notify() (in module zerynthapp)</a>
   </dt>
 
   </dl></td>
@@ -127,7 +127,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="viperapp.html#viperapp.on">on() (in module viperapp)</a>
+  <dt><a href="zerynthapp.html#zerynthapp.on">on() (in module zerynthapp)</a>
   </dt>
 
   </dl></td>
@@ -137,7 +137,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="viperapp.html#viperapp.run">run() (in module viperapp)</a>
+  <dt><a href="zerynthapp.html#zerynthapp.run">run() (in module zerynthapp)</a>
   </dt>
 
   </dl></td>
@@ -147,23 +147,23 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="viperapp.html#viperapp.unlink">unlink() (in module viperapp)</a>
+  <dt><a href="zerynthapp.html#zerynthapp.unlink">unlink() (in module zerynthapp)</a>
   </dt>
 
   </dl></td>
 </tr></table>
 
-<h2 id="V">V</h2>
+<h2 id="Z">Z</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="viperapp.html#viperapp.ViperApp">ViperApp (class in viperapp)</a>
+  <dt><a href="zerynthapp.html#zerynthapp.ZerynthApp">ZerynthApp (class in zerynthapp)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="viperapp.html#module-viperapp">viperapp (module)</a>
+  <dt><a href="zerynthapp.html#module-zerynthapp">zerynthapp (module)</a>
   </dt>
 
   </dl></td>
@@ -179,7 +179,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright Viper Team.
+        &copy; Copyright Zerynth Team.
     </p>
   </div>
 
@@ -225,7 +225,18 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ <script type="text/javascript">
+ var vurl
+ if(location.href.indexOf("127.0.0.1")>=0) vurl=location.protocol+"//"+location.host+"/docs"
+ else vurl="http://doc.zerynth.com"
+ $(document).ready(function(){
+                   $('.wy-breadcrumbs a:contains("Docs")').before('<a href="'+vurl+'">Zerynth</a> &#187;')
+                   $('.wy-side-nav-search > a').removeClass("fa-home").removeClass("fa")
+                   $('.wy-side-nav-search').prepend('<div class="viper-circle"><a href="'+vurl+'"><span style="color:#1c5e60" class="zerynth-Logo2"></span></a></div>')
+ })
+ </script>
+
 
 </body>
 </html>
