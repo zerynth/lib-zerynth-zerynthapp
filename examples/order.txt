@@ -1,4 +1,4 @@
-#ViperApp
-	Viper_App_Basic
-	Viper_App_Oscilloscope
-	Viper_App_TOI
+#ZerynthApp
+	Zerynth_App_Basic
+	Zerynth_App_Oscilloscope
+	Zerynth_App_TOI

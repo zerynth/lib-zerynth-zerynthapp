@@ -1,20 +1,20 @@
 ################################################################################
-# Viper App - TOI Shield
+# Zerynth App - TOI Shield
 #
 # Created: 2015-08-29 00:17:06.795078
 #
 ################################################################################
 
 # this example requires the cc3000 wifi driver and the toishield module to be installed.
-# Search them in the Viper Package Manager if missing.
+# Search them in the Zerynth Package Manager if missing.
 
 import streams
 import pwm
 from toishield import toishield
 from wireless import wifi
 from cc3000 import cc3000_tiny as cc3000
-# and also import the viperapp module
-from viperapp import viperapp
+# and also import the zerynthapp module
+from zerynthapp import zerynthapp
 
 
 streams.serial()
@@ -34,7 +34,7 @@ except Exception as e:
     print(e)
 
 
-#### ViperApp Setup    
+#### ZerynthApp Setup    
 
 # :: Javascript to Python ::
 # the following function will be called when the template button is pressed
@@ -46,13 +46,13 @@ def buzz():
 # the following function sends messages to the mobile app
 # labelling them as "data" events
 
-# configure the viper app with a name, a descripton and the template url
-vp = viperapp.ViperApp("TOI Shield","TOI Shield Test","resource://template.html",True)
+# configure the zerynth app with a name, a descripton and the template url
+vp = zerynthapp.ZerynthApp("TOI Shield","TOI Shield Test","resource://template.html",True)
 
 # everytime Javascript generates the event "buzzer" the function buzz is called
 vp.on("buzzer",buzz)
 
-# run the ViperApp!
+# run the ZerynthApp!
 vp.run()
 
 

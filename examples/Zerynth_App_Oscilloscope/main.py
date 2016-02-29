@@ -1,7 +1,7 @@
 ################################################################################
-# Viper App Oscilloscope
+# Zerynth App Oscilloscope
 #
-# Created by VIPER Team 2015 CC
+# Created by ZERYNTH Team 2015 CC
 # Authors: G. Baldi, D. Mazzei
 ################################################################################
 
@@ -13,8 +13,8 @@ import streams
 from wireless import wifi
 from cc3000 import cc3000_tiny as cc3000
 import adc
-# and import the viperapp module
-from viperapp import viperapp
+# and import the zerynthapp module
+from zerynthapp import zerynthapp
 
 
 
@@ -36,8 +36,8 @@ except Exception as e:
     print(e)
 
 
-# Configure and run the ViperApp instance
-vp = viperapp.ViperApp("Oscilloscope","Yeah, a javascript oscilloscope","resource://template.html")
+# Configure and run the ZerynthApp instance
+vp = zerynthapp.ZerynthApp("Oscilloscope","Yeah, a javascript oscilloscope","resource://template.html")
 vp.run()
 
 
@@ -46,5 +46,5 @@ while True:
     # read from adc
     x = adc.read(A4)
     # send the value to the mobile app via a notification event called "adc"
-    # the notification is sent only after the mobile app to viper script link is established ;)
+    # the notification is sent only after the mobile app to zerynth script link is established ;)
     vp.notify("adc",x)

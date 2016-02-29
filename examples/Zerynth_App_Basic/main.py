@@ -1,7 +1,7 @@
 ################################################################################
-# ViperApp Basic
+# ZerynthApp Basic
 #
-# Created by VIPER Team 2015 CC
+# Created by ZERYNTH Team 2015 CC
 # Authors: G. Baldi, D. Mazzei
 ################################################################################
 
@@ -11,8 +11,8 @@
 import streams
 from wireless import wifi
 from cc3000 import cc3000_tiny as cc3000
-# and also import the viperapp module
-from viperapp import viperapp
+# and also import the Zerynthapp module
+from zerynthapp import zerynthapp
 
 
 streams.serial()
@@ -31,7 +31,7 @@ except Exception as e:
     print(e)
 
     
-#### ViperApp Setup    
+#### ZerynthApp Setup    
     
 # :: Javascript to Python ::
 # the following function will be called when the template button is pressed
@@ -51,13 +51,13 @@ def btn_pressed():
 onPinFall(BTN0,btn_pressed)
 
 
-# configure the viper app with a name, a descripton and the template url
-vp = viperapp.ViperApp("Test","Test Object","resource://template.html")
+# configure the Zerynth app with a name, a descripton and the template url
+vp = zerynthapp.ZerynthApp("Test","Test Object","resource://template.html")
 
 # everytime Javascript generates the event "showmsg" the function show_message is called
 vp.on("showmsg",show_message)
 
-# run the ViperApp!
+# run the ZerynthApp!
 vp.run()
 
 # since vp.run starts a new thread, you can do whatever else you want down here!

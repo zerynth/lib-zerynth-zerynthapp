@@ -1,9 +1,9 @@
 <html>
     <head>
-        <viper/>
-        <viper-jquery/>
-        <viper-jquery-mobile/>
-        <viper-jqwidgets/>
+        <zerynth/>
+        <zerynth-jquery/>
+        <zerynth-jquery-mobile/>
+        <zerynth-jqwidgets/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>        
     <body>
@@ -12,7 +12,7 @@
             <div role="main" class="ui-content" style="text-align:center">
                 <div id='chart' style="width:90%; height:80%"></div>
             </div>
-            <div data-role="footer">Powered by Viper</div>
+            <div data-role="footer">Powered by Zerynth</div>
         </div>
         <script>
             var data = []
@@ -20,7 +20,7 @@
             // prepare jqxChart settings
             var settings = {
                 title: "Oscilloscope Data",
-                description: "Sent from your Viper Object",
+                description: "Sent from your Zerynth Object",
                 enableAnimations: true,
                 animationDuration: 100,
                 enableAxisTextAnimation: true,
@@ -60,8 +60,8 @@
                 $("#chart").jqxChart('update')
             }
             
-            ViperApp.listen("adc",update_graph)
-            ViperApp.jquerymobile_scalecontent()
+            ZerynthApp.listen("adc",update_graph)
+            ZerynthApp.jquerymobile_scalecontent()
         </script>
     </body>
 </html>
