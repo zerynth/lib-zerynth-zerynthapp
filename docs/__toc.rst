@@ -4,5 +4,5 @@
     .. toctree::
        :maxdepth: 2
 
-       zerynthapp
+       docs_zerynthapp
 

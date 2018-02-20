@@ -1,4 +1,3 @@
-"""
 .. module:: zerynthapp
 
 .. _lib.zerynth.zerynthapp:
@@ -35,8 +34,6 @@ HTML templates
 **************
 
 HTML templates reside on the ADM servers and are transferred from it to the mobile app where they are rendered. Javascript is needed to add some logic to the template. The task is made easier by using the :ref:`Zerynth ADM Javascript library <zadm>`.
-
-.. important:: In each template there must be an :samp:`index.html` file that will be served by the ADM when the device UI is requested
 
 Templates are better explained with examples: ::
     
@@ -162,65 +159,36 @@ A template must be coupled with a Zerynth script running on a device. Here it is
 
 This simple script connects to the local Wifi network, configures and runs a ZerynthApp instance. The method :samp:`on` is called to configure the Javascript-to-Python channel: everytime a call to “random” is remotely requested from Javascript, the function :samp:`do_random` is called in the Zerynth script. When the device button is pressed, the :samp:`event` method is called, and the event  is transferred to the mobile app, where Javascript, configured in the template, updates a label.  
 
-    """
-from zadm import zadm
-
-
-class ZerynthApp():
-    """
+    
 ====================
 The ZerynthApp class
 ====================
 
-.. class:: ZerynthApp(uid,token,ip=None,address="things.zerynth.com",log=False)
+.. class:: ZerynthApp(uid,token,log=False)
 
         Creates a ZerynthApp instance or the device with uid :samp:`uid` and token :samp:`token`.
         If *log* is True, some debug messages are printed.
-        If *ip* is given, it tries to connect to the ADM instance hosted at ip (default ip is 178.22.65.123).
-        If *address* is given, it tries to connect to the ADM instance hosted ad address url (default address is "things.zerynth.com").
 
 
-    """
-    def __init__(self,uid,token,ip=None,address="things.zerynth.com",log=False):
-        self.rpc = {}
-        self.dev = zadm.Device(uid,token,ip=ip,address=address,log=log,rpc=self.rpc)
-
-    def on(self,method,fn):
-        """
+    
 .. method:: on(method,fn)        
 
         Associates the method name *method* to the callable *fn*. Everytime the ZerynthApp instance receives a request for *method*
         from the mobile app, the callable *fn* is executed (possibly with arguments).
                 
-        """
-
-        self.rpc[method]=fn
-
-    def event(self,payload):
-        """
+        
 .. method:: event(payload)        
 
         Sends an event with payload *payload* to the mobile app. 
                 
-        """
-        self.dev.send_event(payload)
-
-
-    def notify(self,title,text):
-        """
+        
 .. method:: notify(title,text)        
 
         Sends a push notification to connected apps with title *title* and text *text*
                 
-        """
-        self.dev.send_notification(title,text)
-
-
-    def run(self):
-        """
+        
 .. method:: run()        
 
         Starts the ZerynthApp instance on a separate thread and returns immediately.
                 
-        """
-        self.dev.start()
+        
