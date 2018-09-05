@@ -2,16 +2,16 @@
 
 This module provides access to the Zerynth App functionalities.
 
-The Zerynth App is designed to make interaction with Zerynth programs on your MicroPython device easy. You can think of a Zerynth App as a bidirectional communication channel between a Zerynth script running on a MicroPython device and some HTML+Javascript running as a mobile app. In conventional client/server network terms the MicroPython device would be the server, responding to requests from the mobile app client.
+The Zerynth App is designed to make interaction with Zerynth programs on your microcontroller device easy. You can think of a Zerynth App as a bidirectional communication channel between a Zerynth script running on the microcontroller and some HTML+Javascript running as a mobile app. In conventional client/server network terms the microcontroler device would be the server, responding to requests from the mobile app client.
 
 A program using the Zerynthapp module must provide the following components:
 
-    * a user interface template, which the MicroPython device delivers to the mobile client
-    * a set of notifications that the MicroPython device can send to the mobile app,
+    * a user interface template, which the microcontroller device delivers to the mobile client
+    * a set of notifications that the microcontroller device can send to the mobile app,
       where they are handled as events by scripts embedded in the template
-    * a set of event functions that run on the MicroPython device in response to messages receieved from the mobile client
+    * a set of event functions that run on the microcontroller device in response to messages receieved from the mobile client
 
-An instance of the MicroPython ZerynthApp class defined in this module, when instantiated and run on your device,
+An instance of the Python ZerynthApp class defined in this module, when instantiated and run on your device,
 waits for messages coming
 from the mobile app via wifi (bluetooth LE is currently under development). Each valid message becomes
 an event to be processed by its nominated function.
@@ -20,17 +20,17 @@ an event to be processed by its nominated function.
 ZerynthApp Step by Step
 =======================
 
-Using the MicroPython zerynthapp module is easy. 
+Using the Python zerynthapp module is easy. 
 
     1. First, define an html template by adding a new html file to the current project. Declare the template as a resource so you can save it to your device's flash memory and open it in the script.
-    2. Create a zerynthapp instance with a name and a description.
+    2. Create a ZerynthaApp instance with a name and a description.
     3. Configure the instance, linking event names to the functions that handle them.
     4. Call the zerynthapp instance's ``run`` method.
 
 HTML templates
 **************
 
-An HTML template defines the content that will be delivered to the mobile app, where it is rendered. Embedded Javascript adds event handling logic to the template. The *ZerynthApp* Javascript object can remotely call Python functions by name to be executed on the MicroPython device.
+An HTML template defines the content that will be delivered to the mobile app, where it is rendered. Embedded Javascript adds event handling logic to the template. The *ZerynthApp* Javascript object can remotely call Python functions by name to be executed on the microcontroller device.
 
 The example below will help you to understand the structure of a template: ::
     
@@ -71,13 +71,13 @@ The body section consists of a **<div>** defining the appearance of the interfac
 
 In this instance the top-level **<div>** contains three further **<div>** elements for the app header, main window and footer.  The *onclick* attribute of the button specifies generation of an event called *showmsg*, using a call to the ZerynthApp's *call* method. All the parameters are encoded, sent to the board, and used as arguments of the Python function linked to the *show_message* event. The ZerynthApp.call method is the channel from Javascript to Python
 
-In the final script section the ZerynthApp Javascript object is used to register a notification name *"btn"*. Everytime the MicroPython device sends a notification with that name the *update_label* JavaScript function will be executed (in this case it changes the text of the **<p>** html element whose id is "label"). Parameters can be passed to the notify function and will be transmitted to the mobile app. The *notify* method of the ZerynthApp instance is the channel from Python to Javascript.
+In the final script section the ZerynthApp Javascript object is used to register a notification name *"btn"*. Everytime the microcontroller device sends a notification with that name the *update_label* JavaScript function will be executed (in this case it changes the text of the **<p>** html element whose id is "label"). Parameters can be passed to the notify function and will be transmitted to the mobile app. The *notify* method of the ZerynthApp instance is the channel from Python to Javascript.
 
 
 Zerynth App Instances
 *********************
 
-An HTML template must be coupled with a Zerynth script running on a MicroPython device. Here is an example script that works with the template above: ::
+An HTML template must be coupled with a Zerynth script running on a microcontroller. Here is an example script that works with the template above: ::
 
     import streams
     from wireless import wifi
