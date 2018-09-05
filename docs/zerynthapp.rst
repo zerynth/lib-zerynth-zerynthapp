@@ -2,7 +2,7 @@
 
 This module provides access to the Zerynth App functionalities.
 
-The Zerynth App is designed to make interaction with Zerynth programs on your microcontroller device easy. You can think of a Zerynth App as a bidirectional communication channel between a Zerynth script running on the microcontroller and some HTML+Javascript running as a mobile app. In conventional client/server network terms the microcontroler device would be the server, responding to requests from the mobile app client.
+The Zerynth App is designed to make interaction with Zerynth programs on your microcontroller device easy. You can think of a Zerynth App as a bidirectional communication channel between a Zerynth script running on the microcontroller and some HTML+Javascript running as a mobile app. In conventional client/server network terms the microcontroller device would be the server, responding to requests from the mobile app client.
 
 A program using the Zerynthapp module must provide the following components:
 
