@@ -67,7 +67,7 @@ The following special tags in the head section import javascript libraries embed
     * **<zerynth-jquery-mobile/>** imports the JQuery Mobile library
     * **<zerynth-jqwidgets/>** imports the JQWidgets library
 
-The body section consists of a **<div>** defining the appearance of the interface, and scripting to handle interactions with the MicroPython device.
+The body section consists of a **<div>** defining the appearance of the interface, and scripting to handle interactions with the device.
 
 In this instance the top-level **<div>** contains three further **<div>** elements for the app header, main window and footer.  The *onclick* attribute of the button specifies generation of an event called *showmsg*, using a call to the ZerynthApp's *call* method. All the parameters are encoded, sent to the board, and used as arguments of the Python function linked to the *show_message* event. The ZerynthApp.call method is the channel from Javascript to Python
 
