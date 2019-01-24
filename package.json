@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "lib.zerynth.zadm": "r2.1.2"
+        "lib.zerynth.zadm": "r2.2.0"
     },
     "description": "Zerynth App support to control devices",
     "fullname": "lib.zerynth.zerynthapp",
@@ -16,6 +16,6 @@
     ],
     "repo": "official",
     "title": "Zerynth App Library",
-    "version": "r2.1.2",
+    "version": "r2.2.0",
     "whatsnew": ""
 }
