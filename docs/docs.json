@@ -1,8 +1,0 @@
-{
-	"version":"0.3.0",
-	"title":"ZerynthApp Module",
-	"copyright":"Zerynth Team",
-	"files":[
-		["Zerynth App","zerynthapp.py"]
-	]
-}

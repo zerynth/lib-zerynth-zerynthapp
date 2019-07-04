@@ -1,0 +1,12 @@
+---
+description: Zerynth App support to control devices
+fullname: lib.zerynth.zerynthapp
+info:
+    chip_manufacturer: '-'
+    chip_name: '-'
+    name: Zerynth App Library
+    type: Tool
+keywords:
+- app
+title: Zerynth App Library
+...
